@@ -12,6 +12,7 @@ class ET_Builder_Module_Custom_Post_Type extends ET_Builder_Module {
 			'fullwidth',
 			'posts_number',
 			'include_categories',
+			'include_taxonomies',
 			'meta_date',
 			'show_thumbnail',
 			'show_content',
@@ -207,6 +208,18 @@ class ET_Builder_Module_Custom_Post_Type extends ET_Builder_Module {
 					'use_terms' => false,
 				),
 				'description'      => esc_html__( 'Choose which categories you would like to include in the feed.', 'et_builder' ),
+				'computed_affects'   => array(
+					'__posts',
+				),
+			),
+			'include_taxonomies' => array(
+				'label'            => esc_html__( 'Include Taxonomies', 'et_builder' ),
+				'renderer'         => 'et_builder_include_taxonomies_option',
+				'option_category'  => 'basic_option',
+				'renderer_options' => array(
+					'use_terms' => false,
+				),
+				'description'      => esc_html__( 'Choose which taxonomies you would like to include in the feed.', 'et_builder' ),
 				'computed_affects'   => array(
 					'__posts',
 				),
@@ -457,6 +470,7 @@ class ET_Builder_Module_Custom_Post_Type extends ET_Builder_Module {
 					'fullwidth',
 					'posts_number',
 					'include_categories',
+					'include_taxonomies',
 					'meta_date',
 					'show_thumbnail',
 					'show_content',
