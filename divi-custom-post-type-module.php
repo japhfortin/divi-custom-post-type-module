@@ -64,39 +64,39 @@ function et_builder_include_taxonomies_option( $args = array() ) {
 		   '_builtin' => false
 		), 'names', 'and' );
 
-		$detailed_taxonomy = [];
+		// $detailed_taxonomy = [];
 
-		foreach ($post_types as $post_type) {
-			$taxonomies = get_object_taxonomies( $post_type );
-			if (!empty($taxonomies)) {
-				// $custom_tax = [];
-				foreach ($taxonomies as $taxonomy) {
-					$terms = get_terms( array(
-					    'taxonomy' => $taxonomy,
-					    'hide_empty' => false,
-					) );
-					$cats_array = $terms;
-					if (!empty($cats_array)) {
-						$output.= '<h4>' . $post_type . '</h4>';
-						foreach ( $cats_array as $category ) {
-							$contains = sprintf(
-								'<%%= _.contains( et_pb_include_taxonomies_temp, "%1$s" ) ? checked="checked" : "" %%>',
-								esc_html( $category->term_id )
-							);
+		// foreach ($post_types as $post_type) {
+		// 	$taxonomies = get_object_taxonomies( $post_type );
+		// 	if (!empty($taxonomies)) {
+		// 		// $custom_tax = [];
+		// 		foreach ($taxonomies as $taxonomy) {
+		// 			$terms = get_terms( array(
+		// 			    'taxonomy' => $taxonomy,
+		// 			    'hide_empty' => false,
+		// 			) );
+		// 			$cats_array = $terms;
+		// 			if (!empty($cats_array)) {
+		// 				$output.= '<h4>' . $post_type . '</h4>';
+		// 				foreach ( $cats_array as $category ) {
+		// 					$contains = sprintf(
+		// 						'<%%= _.contains( et_pb_include_taxonomies_temp, "%1$s" ) ? checked="checked" : "" %%>',
+		// 						esc_html( $category->term_id )
+		// 					);
 
-							$output .= sprintf(
-								'%4$s<label><input type="checkbox" name="et_pb_include_taxonomies" value="%1$s"%3$s> %2$s</label><br/>',
-								esc_attr( $category->term_id ),
-								esc_html( $category->name ),
-								$contains,
-								"\n\t\t\t\t\t"
-							);
-						}
-					}
-				}
-			}
+		// 					$output .= sprintf(
+		// 						'%4$s<label><input type="checkbox" name="et_pb_include_taxonomies" value="%1$s"%3$s> %2$s</label><br/>',
+		// 						esc_attr( $category->term_id ),
+		// 						esc_html( $category->name ),
+		// 						$contains,
+		// 						"\n\t\t\t\t\t"
+		// 					);
+		// 				}
+		// 			}
+		// 		}
+		// 	}
 
-		}
+		// }
 	}
 
 	// if ( empty( $cats_array ) ) {

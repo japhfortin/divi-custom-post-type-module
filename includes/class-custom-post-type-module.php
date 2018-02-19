@@ -219,7 +219,7 @@ class ET_Builder_Module_Custom_Post_Type extends ET_Builder_Module {
 				'renderer_options' => array(
 					'use_terms' => false,
 				),
-				'description'      => esc_html__( 'Choose which taxonomies you would like to include in the feed.', 'et_builder' ),
+				'description'      => esc_html__( 'Choose which taxonomies you would like to include in the feed. (On going development)', 'et_builder' ),
 				'computed_affects'   => array(
 					'__posts',
 				),
